@@ -1,0 +1,41 @@
+## jobs :id-deadline-profit
+
+jobs={(1,4,20),(2,1,10),(3,1,40),(4,1,30)}
+
+#we need to arrange the jobs from maximum profit to minimum one
+
+sorted_jobs = sorted(jobs, key=lambda x: x[2], reverse=True)
+
+Print(sorted_jobs)
+
+#finding the maximum deadline the same way we do in profits 
+
+maxDeadline = max(jobs, key=lambda x: x[1])
+
+Print(“max deadline=“maxDeadline[1])
+
+available_time={}
+
+total_profit = 0
+
+num_jobs_done = 0
+
+for job in jobs:
+
+        for i in range(job[1], 0, -1):
+
+            if i not in available_time:
+
+                available_time[i] = job[0]
+
+                total_profit += job[2]
+
+                num_jobs_done += 1
+
+                break
+
+print("Maximum profit:", total_profit)
+
+print("Number of jobs done:", num_jobs_done)
+
+available_time
