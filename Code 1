@@ -1,0 +1,103 @@
+package algorithmdesign;
+
+import java.util.List;
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+public class AlgorithmDesign {
+
+   
+
+    public static void main(String[] args) {
+
+        // TODO code application logic here
+
+        // Create array list of jobs
+
+        List<job> jobs = new ArrayList<>();
+
+        jobs.add(new job(1, 6, 6));
+
+        jobs.add(new job(2, 5, 5));
+
+        jobs.add(new job(5, 7, 5));
+
+        jobs.add(new job(6, 8, 3));
+
+        // Find the maximum profit
+
+        int maxProfit = findMaximumProfit00(jobs);
+
+        // Print the maximum profit
+
+        System.out.println("The maximum profit is: " + maxProfit);
+
+    }
+
+    
+
+    private static int findMaximumProfit00(List<job> jobs) {
+
+    // Merge Sort the jobs by their end time  with lamda expression
+
+    Collections.sort(jobs, (a, b) -> a.end - b.end);
+
+    // Initialize the last finish time
+
+    int lastFinishTime = 0;
+
+    // Initialize the maximum profit
+
+    int maxProfit = 0;
+
+    // Iterate over the jobs
+
+    for (job job : jobs) {
+
+        // If the job does not overlap with any previous jobs, add it to the maximum profit
+
+        if (job.start >= lastFinishTime) {
+
+            maxProfit += job.profit;
+
+            lastFinishTime = job.end;
+
+        }
+
+    }
+
+    return maxProfit;
+
+}
+
+     }
+     
+     
+     
+package algorithmdesign;
+
+public class job {
+
+    int start;
+
+    int end;
+
+    int profit;
+
+    public job(int start, int end, int profit) {
+
+        //Constructor to initialize object.
+
+        this.start = start;
+
+        this.end = end;
+
+        this.profit = profit;
+
+    }
+
+    
+
+}
