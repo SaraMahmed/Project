@@ -8,7 +8,7 @@ sorted_jobs = sorted(jobs, key=lambda x: x[2], reverse=True)
 
 Print(sorted_jobs)
 
-#finding the maximum deadline the same way we do in profits 
+#finding the maximum deadline the same way we do in profits. 
 
 maxDeadline = max(jobs, key=lambda x: x[1])
 
